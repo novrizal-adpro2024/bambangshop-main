@@ -77,6 +77,30 @@ This is the place for you to write reflections:
 ### Mandatory (Publisher) Reflections
 
 #### Reflection Publisher-1
+1. In the Observer pattern diagram explained by the Head First Design Pattern book, Subscriber is defined as an interface. 
+Explain based on your understanding of Observer design patterns, 
+do we still need an interface (or trait in Rust) in this BambangShop case, or a single Model struct is enough?
+
+**ANS:** In the Observer pattern diagram, Subscriber is implemented as an interface.
+With this, the purpose of reducing the dependency of the Publisher on concrete Subscriber classes will be achieved. 
+Also, by using interface it will help to enhance flexibility and maintainability of BambangShop's program.
+This allows for creating alternative implementations of concrete Subscribers without needing to modify existing code. 
+
+2. id in Program and url in Subscriber is intended to be unique. 
+Explain based on your understanding, 
+is using Vec (list) sufficient or using DashMap (map/dictionary) like we currently use is necessary for this case?
+
+**ANS:** Using DashMap (map/dictionary) is better than using Vec (list.)
+This is because: When using Vec, ensuring the uniqueness of an id entails an inefficient iteration through the entire list (with a complexity of O(N)). 
+Conversely, DashMap allows for direct access, guaranteeing the uniqueness of ids (with a complexity of O(1)).
+
+3. When programming using Rust, we are enforced by rigorous compiler constraints to make a thread-safe program. 
+In the case of the List of Subscribers (SUBSCRIBERS) static variable, we used the DashMap external library for thread safe HashMap. 
+Explain based on your understanding of design patterns, 
+do we still need DashMap or we can implement Singleton pattern instead?
+
+**ANS:** Dashmap is a better choice because it ensures that operations on the static variable SUBSCRIBERS can be safely performed by multiple threads concurrently. 
+On the other hand, the Singleton Pattern does not always guarantee thread safety, especially in cases of concurrency. 
 
 #### Reflection Publisher-2
 
