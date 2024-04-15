@@ -48,22 +48,22 @@ You can install Postman via this website: https://www.postman.com/downloads/
     (You might want to use `cargo check` if you only need to verify your work without running the app.)
 
 ## Mandatory Checklists (Publisher)
--   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
+-   [x] Clone https://gitlab.com/ichlaffterlalu/bambangshop to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Subscriber model struct.`
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Subscriber repository.`
-    -   [ ] Commit: `Implement list_all function in Subscriber repository.`
-    -   [ ] Commit: `Implement delete function in Subscriber repository.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
+    -   [x] Commit: `Create Subscriber model struct.`
+    -   [x] Commit: `Create Notification model struct.`
+    -   [x] Commit: `Create Subscriber database and Subscriber repository struct skeleton.`
+    -   [x] Commit: `Implement add function in Subscriber repository.`
+    -   [x] Commit: `Implement list_all function in Subscriber repository.`
+    -   [x] Commit: `Implement delete function in Subscriber repository.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 -   **STAGE 2: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 -   **STAGE 3: Implement notification mechanism**
     -   [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
     -   [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -103,5 +103,34 @@ do we still need DashMap or we can implement Singleton pattern instead?
 On the other hand, the Singleton Pattern does not always guarantee thread safety, especially in cases of concurrency. 
 
 #### Reflection Publisher-2
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”.
+Model in MVC covers both data storage and business logic.
+Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+**ANS:** In the traditional MVC pattern, the Model typically encompasses both data storage and business logic. 
+However, as applications grow in complexity, it becomes beneficial to separate concerns further by introducing the concepts of "Service" and "Repository". Here's why:
+
+- Separation of Concerns: By separating the Model into Service and Repository layers, we adhere more closely to the principle of separation of concerns. The Service layer handles the application's business logic, while the Repository layer deals with data access and persistence. This separation makes the codebase easier to understand, maintain, and scale.
+- Flexibility and Reusability: Separating the Model into Service and Repository layers makes it easier to swap out implementations. 
+- Testing: Separating concerns makes it easier to unit test different parts of the application in isolation. 
+
+2. What happens if we only use the Model?
+Explain your imagination on how the interactions between each model (Program, Subscriber, Notification)
+affect the code complexity for each model?
+
+**ANS:** If we only use the Model without separating it into Service and Repository layers, the interactions between different models (such as Program, Subscriber, and Notification) would likely become tightly coupled.
+This could lead to increased code complexity and decreased maintainability as the application grows. For example:
+
+- Without a clear separation of concerns, business logic related to Programs, Subscribers, and Notifications might become intertwined within the Model layer.
+- As the application expands and new features are added, managing the interactions and dependencies between different models could become challenging.
+- Code related to data access and manipulation might also clutter the Model layer, making it harder to understand and maintain.
+
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work.
+You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+**ANS:** Postman is a powerful tool for testing APIs and collaborating on API development. Postman provides a user-friendly interface for sending requests to APIs and inspecting responses.
+Usually, I use Postman to send HTTP requests to test server endpoints and verify if the responses align with expectations.
+Postman allows users to organize requests into collections and define environments with variables. 
+This makes it easy to manage and execute sets of related requests, streamlining the testing process.
 
 #### Reflection Publisher-3
